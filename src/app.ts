@@ -12,25 +12,21 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 
-// app.use('/api/v1', routes);
-
-app.get('/', async (req, res) => {
-  res.send('server running');
-});
+app.use('/api/v1', routes);
 
 app.use(globalExceptionHandler);
 
-app.use((req, res, next) => {
-  res.status(httpStatus.NOT_FOUND).json({
-    success: false,
-    message: 'API not found',
-    errorMessages: [
-      {
-        path: '',
-        message: 'API not found'
-      }
-    ]
-  });
-});
+// app.use((req, res, next) => {
+//   res.status(httpStatus.NOT_FOUND).json({
+//     success: false,
+//     message: 'API not found',
+//     errorMessages: [
+//       {
+//         path: '',
+//         message: 'API not found'
+//       }
+//     ]
+//   });
+// });
 
 export default app;

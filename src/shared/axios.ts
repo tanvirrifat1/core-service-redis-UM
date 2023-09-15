@@ -1,14 +1,16 @@
 import axios, { AxiosInstance } from 'axios';
-import { error } from 'console';
+
+import config from '../config';
 
 const HttpService = (baseUrl: string): AxiosInstance => {
   const instance = axios.create({
     baseURL: baseUrl,
-    timeout: 1000,
+    timeout: 10000,
     headers: {
       'Content-Type': 'application/json'
     }
   });
+
   instance.interceptors.request.use(
     (config) => {
       return config;
@@ -18,13 +20,19 @@ const HttpService = (baseUrl: string): AxiosInstance => {
     }
   );
 
-  instance.interceptors.request.use(
+  instance.interceptors.response.use(
     (response) => {
-      return response;
+      return response.data;
     },
     (error) => {
       return Promise.reject(error);
     }
   );
+
   return instance;
 };
+
+const AuthService = HttpService(config.authServiceUrl);
+const CoreService = HttpService(config.coreServiceUrl);
+
+export { HttpService, AuthService, CoreService };

@@ -13,4 +13,4 @@ router.post(
   AcademicDepartmentController.insertIntoDB
 );
 
-export const academicDepartmentRoutes = router;
+export const AcademicDepartmentRoutes = router;

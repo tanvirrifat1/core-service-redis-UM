@@ -2,13 +2,13 @@ import { Response, Request, NextFunction } from 'express';
 import { AcademicFacultyService } from './academicFaculty.service';
 import sendResponse from '../../../shared/response';
 
-const insertIntoDb = async (req: Request, res: Response, next: NextFunction) => {
+const insertIntoDB = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const result = AcademicFacultyService.insertIntoDb(req);
+    const result = await AcademicFacultyService.insertIntoDB(req);
     sendResponse(res, result);
   } catch (error) {
     next(error);
   }
 };
 
-export const AcademicFacultyController = { insertIntoDb };
+export const AcademicFacultyController = { insertIntoDB };

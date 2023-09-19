@@ -11,6 +11,46 @@ const insertIntoDB = async (req: Request, res: Response, next: NextFunction) => 
   }
 };
 
+const getAllFromDB = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await BuildingService.getAllFromDB(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const getByIdFromDB = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await BuildingService.getByIdFromDB(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const updateFromDB = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await BuildingService.updateFromDB(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const deleteFromDB = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await BuildingService.deleteFromDB(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const BuildingController = {
-  insertIntoDB
+  insertIntoDB,
+  getAllFromDB,
+  getByIdFromDB,
+  updateFromDB,
+  deleteFromDB
 };

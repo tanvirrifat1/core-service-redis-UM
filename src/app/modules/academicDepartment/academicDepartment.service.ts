@@ -11,6 +11,54 @@ const insertIntoDB = async (req: Request): Promise<IGenericResponse> => {
   return response;
 };
 
+const getAllFromDB = async (req: Request): Promise<IGenericResponse> => {
+  const response: IGenericResponse = await HttpService.get(`/academic-departments`, {
+    params: req.query,
+    headers: {
+      Authorization: req.headers.authorization
+    }
+  });
+  return response;
+};
+
+const updateFromDB = async (req: Request): Promise<IGenericResponse> => {
+  const { id } = req.params;
+  const response: IGenericResponse = await HttpService.patch(
+    `/academic-departments/${id}`,
+    req.body,
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      }
+    }
+  );
+  return response;
+};
+
+const getSingleDB = async (req: Request): Promise<IGenericResponse> => {
+  const { id } = req.params;
+  const response: IGenericResponse = await HttpService.get(`/academic-departments/${id}`, {
+    headers: {
+      Authorization: req.headers.authorization
+    }
+  });
+  return response;
+};
+
+const deleteFromDb = async (req: Request): Promise<IGenericResponse> => {
+  const { id } = req.params;
+  const response: IGenericResponse = await HttpService.delete(`/academic-departments/${id}`, {
+    headers: {
+      Authorization: req.headers.authorization
+    }
+  });
+  return response;
+};
+
 export const AcademicDepartmentService = {
-  insertIntoDB
+  insertIntoDB,
+  getAllFromDB,
+  updateFromDB,
+  deleteFromDb,
+  getSingleDB
 };

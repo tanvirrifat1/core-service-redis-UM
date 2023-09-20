@@ -5,6 +5,10 @@ import { RoomValidation } from './room.validation';
 
 const router = express.Router();
 
-router.post('/', validateRequest(RoomValidation.create), RoomController.insertIntoDb);
+router.get('/:id', RoomController.getSingleRooms);
+router.delete('/:id', RoomController.deleteRooms);
+router.patch('/:id', validateRequest(RoomValidation.update), RoomController.updateRooms);
+router.get('/', RoomController.getAllFromDb);
+router.post('/create', validateRequest(RoomValidation.create), RoomController.insertIntoDb);
 
 export const RoomRoutes = router;

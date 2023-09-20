@@ -32,6 +32,9 @@ const create = z.object({
           endTime: timeStringSchema,
           roomId: z.string({
             required_error: 'Room id is required'
+          }),
+          facultyId: z.string({
+            required_error: 'Faculty id is required'
           })
         })
         .refine(

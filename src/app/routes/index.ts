@@ -7,6 +7,8 @@ import { RoomRoutes } from '../modules/room/room.routes';
 import { courseRoutes } from '../modules/course/course.routes';
 import { offeredCourseRoutes } from '../modules/OfferedCourse/offeredCourse.routes';
 import { semesterRegistrationRoutes } from '../modules/SemesterRegistration/semesterRegistration.routes';
+import { offeredCourseClassScheduleRoutes } from '../modules/OfferedCourseClassSchedule/offeredCourseClassSchedule.routes';
+import { offeredCourseSectionRoutes } from '../modules/OfferedCourseSection/offeredCourseSection.routes';
 
 const router = express.Router();
 
@@ -42,6 +44,14 @@ const moduleRoutes = [
   {
     path: '/semester-registration',
     routes: semesterRegistrationRoutes
+  },
+  {
+    path: '/offered-course-class-schedule',
+    routes: offeredCourseClassScheduleRoutes
+  },
+  {
+    path: '/offered-course-section',
+    routes: offeredCourseSectionRoutes
   }
 ];
 

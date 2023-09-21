@@ -11,7 +11,7 @@ const router = express.Router();
 router.post(
   '/create-student',
   FileUploaderHelper.upload.single('file'),
-  auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
+  // auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
   (req: Request, res: Response, next: NextFunction) => {
     req.body = UserValidation.createStudent.parse(JSON.parse(req.body.data));
     return UserController.createStudent(req, res, next);

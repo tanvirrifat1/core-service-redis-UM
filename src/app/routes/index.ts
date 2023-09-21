@@ -11,6 +11,7 @@ import { offeredCourseClassScheduleRoutes } from '../modules/OfferedCourseClassS
 import { offeredCourseSectionRoutes } from '../modules/OfferedCourseSection/offeredCourseSection.routes';
 import { studentEnrolledCourseRoutes } from '../modules/StudentEnrollCourse/studentEnrollCourse.routes';
 import { studentEnrolledCourseMarkRoutes } from '../modules/studentEnrolledCourseMarks/studentEnrolledCourseMarks.routes';
+import { UserRoutes } from '../modules/User/user.routes';
 
 const router = express.Router();
 
@@ -62,6 +63,10 @@ const moduleRoutes = [
   {
     path: '/student-enrolled-course-marks',
     routes: studentEnrolledCourseMarkRoutes
+  },
+  {
+    path: '/users',
+    routes: UserRoutes
   }
 ];
 

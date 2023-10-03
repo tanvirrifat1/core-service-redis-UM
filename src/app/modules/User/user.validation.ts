@@ -4,15 +4,17 @@ const createStudent = z.object({
   password: z.string().optional(),
 
   student: z.object({
-    name: z.object({
-      firstName: z.string({
-        required_error: 'First name is required'
-      }),
-      lastName: z.string({
-        required_error: 'Last name is required'
-      }),
-      middleName: z.string().optional()
-    }),
+    name: z
+      .object({
+        firstName: z.string({
+          required_error: 'First name is required'
+        }),
+        lastName: z.string({
+          required_error: 'Last name is required'
+        }),
+        middleName: z.string().optional()
+      })
+      .optional(),
 
     dateOfBirth: z.string({
       required_error: 'Date of birth is required'

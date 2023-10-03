@@ -22,6 +22,7 @@ const HttpService = (baseUrl: string): AxiosInstance => {
 
   instance.interceptors.response.use(
     (response) => {
+      console.log(response, 'res');
       return response.data;
     },
     (error) => {

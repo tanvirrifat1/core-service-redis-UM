@@ -5,6 +5,7 @@ import { StudentService } from './student.service';
 const getAllFromDB = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const result = await StudentService.getAllFromDB(req);
+
     sendResponse(res, result);
   } catch (error) {
     next(error);
